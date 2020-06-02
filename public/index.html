@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Starter Boilerplate</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="Starter Boilerplate">
+    <link id="ao_optimized_gfonts" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,800">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body><!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com">upgrade your browser</a> to improve your experience and security.</p><![endif]-->
+    <div class="container easing">
+      <div class="swiper-container swiper-geral">
+        <section class="swiper-wrapper" id="pop99quiz">
+          <section class="default bg-degrade swiper-slide">
+            <div class="body justify-content">
+              <h1>Qual <br>pré-carnaval <span>combina </span><br><span>com você?</span></h1>
+              <figure><img src="img/banner-1.png"></figure>
+              <p>Quer testar qual tipo de bloquinho combina mais com sua vibe? <br>Então responda as nossas perguntas e confira o resultado do <strong>Quiz</strong>!</p>
+              <button class="outline" @click="gotoslide('.swiper-geral',1)">Começar</button>
+            </div>
+          </section>
+          <section class="default bg-degrade swiper-slide">
+            <div class="header">
+              <div class="status">1/3</div>
+              <div class="logo"><img src="img/logo99pop.svg"></div>
+            </div>
+            <div class="body justify-content">
+              <h1>Quem é você <span>no bloquinho?</span></h1>
+              <div class="choices">
+                <label>
+                  <input type="radio" name="q0" value="0v" v-model="perguntas[0]" @change="scrollup(0)">
+                  <div class="bloco_choice easing">
+                    <figure><img src="img/v00.jpg">
+                      <figcaption>Dança a festa inteira</figcaption>
+                    </figure>
+                    <div class="check"><i class="icons8-checkmark"></i></div>
+                  </div>
+                </label>
+                <label>
+                  <input type="radio" name="q0" value="1v" v-model="perguntas[0]" @change="scrollup(0)">
+                  <div class="bloco_choice easing">
+                    <figure><img src="img/v01.jpg">
+                      <figcaption>Beija a festa inteira</figcaption>
+                    </figure>
+                    <div class="check"><i class="icons8-checkmark"></i></div>
+                  </div>
+                </label>
+                <label>
+                  <input type="radio" name="q0" value="2v" v-model="perguntas[0]" @change="scrollup(0)">
+                  <div class="bloco_choice easing">
+                    <figure><img src="img/v02.jpg">
+                      <figcaption>#sóobserva</figcaption>
+                    </figure>
+                    <div class="check"><i class="icons8-checkmark"></i></div>
+                  </div>
+                </label>
+              </div>
+              <button class="avancar" @click="gotoslide('.swiper-geral',2)" :disabled="!perguntas[0]">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewbox="0 0 172 172" style=" fill:#000000;">
+                  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#e7593c">
+                      <path d="M110.08,30.96v44.20938l-72.24,-47.12531v115.91187l72.24,-47.12531v44.20937h27.52v-110.08z"></path>
+                    </g>
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </section>
+          <section class="default bg-degrade swiper-slide">
+            <div class="header">
+              <div class="status">2/3</div>
+              <div class="logo"><img src="img/logo99pop.svg"></div>
+            </div>
+            <div class="body justify-content">
+              <h1>O que não pode faltar <span>na folia?</span></h1>
+              <div class="choices">
+                <label>
+                  <input type="radio" name="q1" value="0v" v-model="perguntas[1]" @change="scrollup(1)">
+                  <div class="bloco_choice easing">
+                    <figure><img src="img/v01.jpg">
+                      <figcaption>Esqueminha com os @s</figcaption>
+                    </figure>
+                    <div class="check"><i class="icons8-checkmark"></i></div>
+                  </div>
+                </label>
+                <label>
+                  <input type="radio" name="q1" value="1v" v-model="perguntas[1]" @change="scrollup(1)">
+                  <div class="bloco_choice easing">
+                    <figure><img src="img/v11.jpg">
+                      <figcaption>Passinho do brega funk</figcaption>
+                    </figure>
+                    <div class="check"><i class="icons8-checkmark"></i></div>
+                  </div>
+                </label>
+                <label>
+                  <input type="radio" name="q1" value="2v" v-model="perguntas[1]" @change="scrollup(1)">
+                  <div class="bloco_choice easing">
+                    <figure><img src="img/v12.jpg">
+                      <figcaption>migos cantando os hits</figcaption>
+                    </figure>
+                    <div class="check"><i class="icons8-checkmark"></i></div>
+                  </div>
+                </label>
+              </div>
+              <button class="avancar" @click="gotoslide('.swiper-geral',3)" :disabled="!perguntas[1]">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewbox="0 0 172 172" style=" fill:#000000;">
+                  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#e7593c">
+                      <path d="M110.08,30.96v44.20938l-72.24,-47.12531v115.91187l72.24,-47.12531v44.20937h27.52v-110.08z"></path>
+                    </g>
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </section>
+          <section class="default bg-degrade swiper-slide">
+            <div class="header">
+              <div class="status">3/3</div>
+              <div class="logo"><img src="img/logo99pop.svg"></div>
+            </div>
+            <div class="body justify-content">
+              <h1>Complete a frase: <span>"pré ok. amigos ok. música ok..."</span></h1>
+              <div class="choices">
+                <label>
+                  <input type="radio" name="q1" value="0v" v-model="perguntas[2]" @change="scrollup(2)">
+                  <div class="bloco_choice easing">
+                    <figure><img src="img/v20.jpg">
+                      <figcaption>o glitter tá ok</figcaption>
+                    </figure>
+                    <div class="check"><i class="icons8-checkmark"></i></div>
+                  </div>
+                </label>
+                <label>
+                  <input type="radio" name="q1" value="1v" v-model="perguntas[2]" @change="scrollup(2)">
+                  <div class="bloco_choice easing">
+                    <figure><img src="img/v21.jpg">
+                      <figcaption>a bebida tá ok</figcaption>
+                    </figure>
+                    <div class="check"><i class="icons8-checkmark"></i></div>
+                  </div>
+                </label>
+                <label>
+                  <input type="radio" name="q1" value="2v" v-model="perguntas[2]" @change="scrollup(2)">
+                  <div class="bloco_choice easing">
+                    <figure><img src="img/v22.jpg">
+                      <figcaption>a fantasia tá ok</figcaption>
+                    </figure>
+                    <div class="check"><i class="icons8-checkmark"></i></div>
+                  </div>
+                </label>
+              </div>
+              <button class="outline" @click="gotoslide('.swiper-geral',4)" :disabled="!perguntas[2]">Pronto!</button>
+            </div>
+          </section>
+          <section class="default bg-yellow swiper-slide">
+            <div class="header colored"><a @click="gotoslide('.swiper-geral',0)" href="javascript:void(0)" style="width: 0; height: 0; overflow: hidden;">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewbox="0 0 172 172" style=" fill:#000000;">
+                  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#ffffff">
+                      <path d="M71.38672,36.44922l-45.6875,45.6875l-3.69531,3.86328l3.69531,3.86328l45.6875,45.6875l7.72656,-7.72656l-36.44922,-36.44922h107.83594v-10.75h-107.83594l36.44922,-36.44922z"></path>
+                    </g>
+                  </g>
+                </svg></a>
+              <div class="logo"><img src="img/logo99pop.svg"></div>
+            </div>
+            <div class="tabs">
+              <div class="tab tab-resultado selecionado"><a href="javascript:void(0)" @click="gotoslide('.swiper-resultado',0)">resultado</a></div>
+              <div class="tab tab-resultado"><a href="javascript:void(0)" @click="gotoslide('.swiper-resultado',1)">programação</a></div>
+            </div>
+            <div class="body">
+              <div class="swiper-container swiper-resultado">
+                <div class="swiper-wrapper">
+                  <div class="resultados swiper-slide">
+                    <div class="resultado" v-show="resultado.indexOf(Math.max(...resultado)) === 0">
+                      <figure><img src="img/r3.png"></figure>
+                      <h3 class="colororange">Animadão</h3>
+                      <p>Você é daqueles que olha pro <strong>@</strong> e diz: <strong>"taca mais glitter que tá pouco" </strong>. Por isso, seu bloquinho ideal será o do <a @click="gotoslides('.swiper-geral', 6, '.swiper-local', 0)" href="#">Mercado dos Pinhões</a>. Você vai dançar muito os passinhos que viu na internet.</p>
+                    </div>
+                    <div class="resultado" v-show="resultado.indexOf(Math.max(...resultado)) === 1">
+                      <figure><img src="img/r2.png"></figure>
+                      <h3 class="colororange">Carnavalesco</h3>
+                      <p>Pra você, esta é a <strong>melhor época do ano </strong>e contou os dias pra fevereiro chegar com o Carnaval. Seu tipo de folia é a do <a @click="gotoslides('.swiper-geral', 6, '.swiper-local', 1)" href="#">Benfica</a> ou <a @click="gotoslides('.swiper-geral', 6, '.swiper-local', 2)" href="#">Praça do Ferreira</a>, junto com os <strong>amigos</strong>!</p>
+                    </div>
+                    <div class="resultado" v-show="resultado.indexOf(Math.max(...resultado)) === 2">
+                      <figure><img src="img/r1.png"></figure>
+                      <h3 class="colororange">Tranquilão</h3>
+                      <p>Você gosta de uma folia de leves, mas <strong>sem muita muvuca. </strong>Neste caso, seu tipo ideal de bloquinho é o <a @click="gotoslides('.swiper-geral', 6, '.swiper-local', 4)" href="#">Prézinho da Mocinha</a> ou <a @click="gotoslides('.swiper-geral', 6, '.swiper-local', 3)" href="#">Aterro da PI</a>. Neles, você pode curtir do jeito de mais gosta: <strong>tranquilão</strong>.</p>
+                    </div>
+                    <button class="outline" @click="gotoslide('.swiper-resultado',1)">Conferir a programação</button>
+                  </div>
+                  <div class="programacao swiper-slide">
+                    <p>Não sabe pra qual pré-carnaval você vai hoje?<br>A gente te ajuda nessa decisão!</p>
+                    <div class="buscar"><a class="toggleNext" href="#">Buscar por data</a>
+                      <div class="lista-data" style="display:none;">
+                        <ul>
+                          <li><a @click="gotoslides('.swiper-geral', 5, '.swiper-programacao', 0)" href="#">07 de Fevereiro</a></li>
+                          <li><a @click="gotoslides('.swiper-geral', 5, '.swiper-programacao', 1)" href="#">08 de Fevereiro</a></li>
+                          <li><a @click="gotoslides('.swiper-geral', 5, '.swiper-programacao', 2)" href="#">09 de Fevereiro</a></li>
+                          <li><a @click="gotoslides('.swiper-geral', 5, '.swiper-programacao', 3)" href="#">14 de Fevereiro</a></li>
+                          <li><a @click="gotoslides('.swiper-geral', 5, '.swiper-programacao', 4)" href="#">15 de Fevereiro</a></li>
+                          <li><a @click="gotoslides('.swiper-geral', 5, '.swiper-programacao', 5)" href="#">16 de Fevereiro</a></li>
+                        </ul>
+                      </div><a class="toggleNext" href="#">Buscar por local</a>
+                      <div class="lista-data" style="display:none;">
+                        <ul>
+                          <li><a @click="gotoslides('.swiper-geral', 6, '.swiper-local', 0)" href="#">Mercado dos Pinhões</a></li>
+                          <li><a @click="gotoslides('.swiper-geral', 6, '.swiper-local', 1)" href="#">Benfica</a></li>
+                          <li><a @click="gotoslides('.swiper-geral', 6, '.swiper-local', 2)" href="#">Praça do Ferreira</a></li>
+                          <li><a @click="gotoslides('.swiper-geral', 6, '.swiper-local', 3)" href="#">Aterrinho da Praça de Iracema</a></li>
+                          <li><a @click="gotoslides('.swiper-geral', 6, '.swiper-local', 4)" href="#">Mocinha</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <figure><img src="img/banner-1.png"></figure>
+              </div>
+            </div>
+          </section>
+          <section class="default bg-yellow swiper-slide">
+            <div class="header colored"><a @click="gotoslide('.swiper-geral', 4)" href="javascript:void(0)">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewbox="0 0 172 172" style=" fill:#000000;">
+                  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#ffffff">
+                      <path d="M71.38672,36.44922l-45.6875,45.6875l-3.69531,3.86328l3.69531,3.86328l45.6875,45.6875l7.72656,-7.72656l-36.44922,-36.44922h107.83594v-10.75h-107.83594l36.44922,-36.44922z"></path>
+                    </g>
+                  </g>
+                </svg></a>
+              <div class="logo"><img src="img/logo99pop.svg"></div>
+            </div>
+            <div class="tabs">
+              <div class="tab tab-programacao selecionado"><a href="javascript:void(0)" @click="gotoslide('.swiper-programacao',0)">07/02</a></div>
+              <div class="tab tab-programacao"><a href="javascript:void(0)" @click="gotoslide('.swiper-programacao',1)">08/02</a></div>
+              <div class="tab tab-programacao"><a href="javascript:void(0)" @click="gotoslide('.swiper-programacao',2)">09/02</a></div>
+              <div class="tab tab-programacao"><a href="javascript:void(0)" @click="gotoslide('.swiper-programacao',3)">14/02</a></div>
+              <div class="tab tab-programacao"><a href="javascript:void(0)" @click="gotoslide('.swiper-programacao',4)">15/02</a></div>
+              <div class="tab tab-programacao"><a href="javascript:void(0)" @click="gotoslide('.swiper-programacao',5)">16/02</a></div>
+            </div>
+            <div class="body">
+              <div class="sliderdatas swiper-container swiper-programacao">
+                <div class="slides swiper-wrapper">
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação<br>do dia <strong>07 de fevereiro</strong></p>
+                    <div class="dias">
+                      <div class="dia">
+                        <figure><img src="img/lista-3.png"></figure>
+                        <div class="infos">
+                          <h5>Mercado dos Pinhões</h5>
+                          <p><strong>18h:</strong> DJ Gomes</p>
+                          <p><strong>19h:</strong> Banda Pimenta Malagueta</p>
+                          <p><strong>20h30:</strong> Selvagens à Procura da Lei</p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-1.png"></figure>
+                        <div class="infos">
+                          <h5>Benfica</h5>
+                          <p><strong>18h:</strong> Calé Alencar</p>
+                          <p><strong>19h:</strong> Ercilia Lima</p>
+                          <p><strong>20h30:</strong> Os Transacionais</p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-4.png"></figure>
+                        <div class="infos">
+                          <h5>Praça do Ferreira</h5>
+                          <p><strong>18h:</strong> Casa Maré</p>
+                          <p><strong>20h:</strong> Luxo da Aldeia</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação<br>do dia <strong>08 de fevereiro</strong></p>
+                    <div class="dias">
+                      <div class="dia">
+                        <figure><img src="img/lista-3.png"></figure>
+                        <div class="infos">
+                          <h5>Mercado dos Pinhões</h5>
+                          <p><strong>18h:</strong> DJ Bruna Queiroz e Maestro Mecânico</p>
+                          <p><strong>19h:</strong> Wanessa Menezes A Maria Escandalosa</p>
+                          <p><strong>20h30:</strong> Baile Preto com Luiza Nobel</p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-1.png"></figure>
+                        <div class="infos">
+                          <h5>Benfica</h5>
+                          <p><strong>18h:</strong> Pingo de Fortaleza</p>
+                          <p><strong>19h:</strong> Os Alfazemas </p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-4.png"></figure>
+                        <div class="infos">
+                          <h5>Praça do Ferreira</h5>
+                          <p><strong>18h:</strong> Banda Couros e Metais</p>
+                          <p><strong>20h:</strong> Concentra Mas Não Sai </p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-5.png"></figure>
+                        <div class="infos">
+                          <h5>Praia de Iracema</h5>
+                          <p><strong>20h30:</strong><br>• Desfile dos blocos Baqueta <br>• Unidos da Cachorra <br>• Camaleões do Vila <br>• Bonde Batuque <br>• Bloco Cheiro <br>• Grupo de afoxé. <br>• Selvagens à Procura de Lei<br></p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-2.png"></figure>
+                        <div class="infos">
+                          <h5>Mocinha</h5>
+                          <p><strong>18h30:</strong> Nick Soul</p>
+                          <p><strong>20h30: </strong>Bloco das Travestidas </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação<br>do dia <strong>09 de fevereiro</strong></p>
+                    <div class="dias">
+                      <div class="dia">
+                        <figure><img src="img/lista-1.png"></figure>
+                        <div class="infos">
+                          <h5>Benfica</h5>
+                          <p><strong>9h:</strong> Comedores de Abacaxi S/A</p>
+                          <p><strong>11h:</strong> Hospício Cultural</p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-2.png"></figure>
+                        <div class="infos">
+                          <h5>Mocinha</h5>
+                          <p><strong>16h:</strong> Bloco Girassol</p>
+                          <p><strong>17h30: </strong>Grupo Percussivo Kebra Mola </p>
+                          <p><strong>18h30: </strong>Caravana Cultural convida Afoxé Acabaca</p>
+                          <p><strong>19h30: </strong>Roberta Fiúza </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação<br>do dia <strong>14 de fevereiro</strong></p>
+                    <div class="dias">
+                      <div class="dia">
+                        <figure><img src="img/lista-3.png"></figure>
+                        <div class="infos">
+                          <h5>Mercado dos Pinhões</h5>
+                          <p><strong>18h:</strong> DJ Adrian Brasil</p>
+                          <p><strong>19h:</strong> Baqueta Clube de Ritmistas</p>
+                          <p><strong>20h30:</strong> Superbanda </p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-1.png"></figure>
+                        <div class="infos">
+                          <h5>Benfica</h5>
+                          <p><strong>18h:</strong> Damas Cortejam</p>
+                          <p><strong>19h:</strong> Coletivo Raízes do Griô</p>
+                          <p><strong>20h:</strong> Pedro Falcão e Sertônica</p>
+                          <p><strong>21h:</strong> Maracatu Solar</p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-4.png"></figure>
+                        <div class="infos">
+                          <h5>Praça do Ferreira</h5>
+                          <p><strong>18h:</strong> Renato Black</p>
+                          <p><strong>20h:</strong> Luxo da Aldeia </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação<br>do dia <strong>15 de fevereiro</strong></p>
+                    <div class="dias">
+                      <div class="dia">
+                        <figure><img src="img/lista-3.png"></figure>
+                        <div class="infos">
+                          <h5>Mercado dos Pinhões</h5>
+                          <p><strong>18h:</strong> Bloco do Vinil</p>
+                          <p><strong>19h:</strong> Mel Mattos</p>
+                          <p><strong>20h30:</strong> Getúlio Abelha</p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-1.png"></figure>
+                        <div class="infos">
+                          <h5>Benfica</h5>
+                          <p><strong>18h:</strong> Lorena Lyse</p>
+                          <p><strong>20h:</strong> Os Alfazemas </p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-4.png"></figure>
+                        <div class="infos">
+                          <h5>Praça do Ferreira</h5>
+                          <p><strong>18h:</strong> Pedro Falcão e Sertõnica</p>
+                          <p><strong>20h:</strong> Concentra Mas Não Sai </p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-5.png"></figure>
+                        <div class="infos">
+                          <h5>Praia de Iracema</h5>
+                          <p><strong>20h30:</strong><br>• Desfile dos blocos Baqueta <br>• Unidos da Cachorra <br>• Camaleões do Vila <br>• Bonde Batuque <br>• Bloco Cheiro <br>• Grupo de afoxé. <br>• Os Transacionais<br></p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-2.png"></figure>
+                        <div class="infos">
+                          <h5>Mocinha</h5>
+                          <p><strong>18h:</strong> Banda Bregaria </p>
+                          <p><strong>20h: </strong>Bloco das Travestidas </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação<br>do dia <strong>16 de fevereiro</strong></p>
+                    <div class="dias">
+                      <div class="dia">
+                        <figure><img src="img/lista-1.png"></figure>
+                        <div class="infos">
+                          <h5>Benfica</h5>
+                          <p><strong>9h:</strong> Tia Samila e sua Turma </p>
+                          <p><strong>11h:</strong> Hospício Cultural</p>
+                        </div>
+                      </div>
+                      <div class="dia">
+                        <figure><img src="img/lista-2.png"></figure>
+                        <div class="infos">
+                          <h5>Mocinha</h5>
+                          <p><strong>16h:</strong> Bloco Girassol</p>
+                          <p><strong>17h30: </strong>Baqueta Clube de Ritmistas</p>
+                          <p><strong>18h30: </strong>Caravana Cultural convida Afoxé Acabaca</p>
+                          <p><strong>19h30: </strong>Roberta Fiúza </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="default bg-yellow swiper-slide">
+            <div class="header colored"><a @click="gotoslide('.swiper-geral', 4)" href="javascript:void(0)">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewbox="0 0 172 172" style=" fill:#000000;">
+                  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#ffffff">
+                      <path d="M71.38672,36.44922l-45.6875,45.6875l-3.69531,3.86328l3.69531,3.86328l45.6875,45.6875l7.72656,-7.72656l-36.44922,-36.44922h107.83594v-10.75h-107.83594l36.44922,-36.44922z"></path>
+                    </g>
+                  </g>
+                </svg></a>
+              <div class="logo"><img src="img/logo99pop.svg"></div>
+            </div>
+            <div class="tabs small">
+              <div class="tab tab-local selecionado"><a href="javascript:void(0)" @click="gotoslide('.swiper-local',0)">Mercado dos pinhões</a></div>
+              <div class="tab tab-local"><a href="javascript:void(0)" @click="gotoslide('.swiper-local',1)">benfica</a></div>
+              <div class="tab tab-local"><a href="javascript:void(0)" @click="gotoslide('.swiper-local',2)">praça do ferreira</a></div>
+              <div class="tab tab-local"><a href="javascript:void(0)" @click="gotoslide('.swiper-local',3)">aterrinho da PI</a></div>
+              <div class="tab tab-local"><a href="javascript:void(0)" @click="gotoslide('.swiper-local',4)">Mocinha</a></div>
+            </div>
+            <div class="body">
+              <div class="sliderdatas swiper-container swiper-local">
+                <div class="slides swiper-wrapper">
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação do<br><strong>Mercado dos Pinhões</strong></p>
+                    <div class="programacaodatas">
+                      <div class="programacaodata">
+                        <h4>07 fev</h4>
+                        <p><strong>18h:</strong> DJ Gomes</p>
+                        <p><strong>19h:</strong> Banda Pimenta Malagueta</p>
+                        <p><strong>20h30:</strong> Selvagens à Procura da Lei									</p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>08 fev</h4>
+                        <p><strong>18h:</strong> DJ Bruna Queiroz e Maestro Mecânico</p>
+                        <p><strong>19h:</strong> Wanessa Menezes A Maria Escandalosa</p>
+                        <p><strong>20h30:</strong> Baile Preto com Luiza Nobel</p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>14 fev</h4>
+                        <p><strong>18h:</strong> DJ Adrian Brasil</p>
+                        <p><strong>19h:</strong> Baqueta Clube de Ritmistas</p>
+                        <p><strong>20h30:</strong> Superbanda 									</p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>15 fev</h4>
+                        <p><strong>18h:</strong> Bloco do Vinil</p>
+                        <p><strong>19h:</strong> Mel Mattos</p>
+                        <p><strong>20h30:</strong> Getúlio Abelha										</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação do<br><strong>Benfica</strong></p>
+                    <div class="programacaodatas">
+                      <div class="programacaodata">
+                        <h4>07 fev</h4>
+                        <p><strong>18h:</strong> Calé Alencar</p>
+                        <p><strong>19h:</strong> Ercilia Lima</p>
+                        <p><strong>20h30:</strong> Os Transacionais						</p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>08 fev</h4>
+                        <p><strong>18h:</strong> Pingo de Fortaleza</p>
+                        <p><strong>19h:</strong> Os Alfazemas </p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>09 fev</h4>
+                        <p><strong>9h:</strong> Comedores de Abacaxi S/A</p>
+                        <p><strong>11h:</strong> Hospício Cultural</p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>14 fev</h4>
+                        <p><strong>18h:</strong> Damas Cortejam</p>
+                        <p><strong>19h:</strong> Coletivo Raízes do Griô</p>
+                        <p><strong>20h:</strong> Pedro Falcão e Sertônica</p>
+                        <p><strong>21h:</strong> Maracatu Solar								</p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>15 fev</h4>
+                        <p><strong>18h:</strong> Lorena Lyse</p>
+                        <p><strong>20h:</strong> Os Alfazemas </p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>16 fev</h4>
+                        <p><strong>9h:</strong> Tia Samila e sua Turma </p>
+                        <p><strong>11h:</strong> Hospício Cultural</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação do<br><strong>Praça do Ferreira</strong></p>
+                    <div class="programacaodatas">
+                      <div class="programacaodata">
+                        <h4>07 fev</h4>
+                        <p><strong>18h:</strong> Casa Maré</p>
+                        <p><strong>20h:</strong> Luxo da Aldeia			</p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>08 fev</h4>
+                        <p><strong>18h:</strong> Banda Couros e Metais</p>
+                        <p><strong>20h:</strong> Concentra Mas Não Sai </p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>14 fev</h4>
+                        <p><strong>18h:</strong> Renato Black</p>
+                        <p><strong>20h:</strong> Luxo da Aldeia 					</p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>15 fev</h4>
+                        <p><strong>18h:</strong> Pedro Falcão e Sertõnica</p>
+                        <p><strong>20h:</strong> Concentra Mas Não Sai </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação do<br><strong>Aterrinho da Praça de Iracema</strong></p>
+                    <div class="programacaodatas">
+                      <div class="programacaodata">
+                        <h4>08 fev</h4>
+                        <p><strong>20h30:</strong><br>• Desfile dos blocos Baqueta <br>• Unidos da Cachorra <br>• Camaleões do Vila <br>• Bonde Batuque <br>• Bloco Cheiro <br>• Grupo de afoxé. <br>• Selvagens à Procura de Lei<br></p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>15 fev</h4>
+                        <p><strong>20h30:</strong><br>• Desfile dos blocos Baqueta <br>• Unidos da Cachorra <br>• Camaleões do Vila <br>• Bonde Batuque <br>• Bloco Cheiro <br>• Grupo de afoxé. <br>• Os Transacionais<br></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slide swiper-slide">
+                    <p>Confira a programação do<br><strong>Mocinha</strong></p>
+                    <div class="programacaodatas">
+                      <div class="programacaodata">
+                        <h4>08 fev</h4>
+                        <p><strong>18h30:</strong> Nick Soul</p>
+                        <p><strong>20h30: </strong>Bloco das Travestidas </p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>09 fev</h4>
+                        <p><strong>16h:</strong> Bloco Girassol</p>
+                        <p><strong>17h30: </strong>Grupo Percussivo Kebra Mola </p>
+                        <p><strong>18h30: </strong>Caravana Cultural convida Afoxé Acabaca</p>
+                        <p><strong>19h30: </strong>Roberta Fiúza </p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>15 fev</h4>
+                        <p><strong>18h:</strong> Banda Bregaria </p>
+                        <p><strong>20h: </strong>Bloco das Travestidas </p>
+                      </div>
+                      <div class="programacaodata">
+                        <h4>16 fev</h4>
+                        <p><strong>16h:</strong> Bloco Girassol</p>
+                        <p><strong>17h30: </strong>Baqueta Clube de Ritmistas</p>
+                        <p><strong>18h30: </strong>Caravana Cultural convida Afoxé Acabaca</p>
+                        <p><strong>19h30: </strong>Roberta Fiúza 				</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script>
+      window.ga = function () {ga.q.push(arguments)}; ga.q = []; ga.l = +new Date;
+      ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview');
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+  </body>
+</html>
